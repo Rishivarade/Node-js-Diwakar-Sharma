@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Products</title>
+</head>
+<link rel="stylesheet" href="/css/product.css">
+
+
+<body>
+  <%- include('partials/header') %>
+    <h1>|| PRODUCTS ||</h1>
+    <ul>
+      <% products.forEach(product=> { %>
+        <li>
+          <h2>
+            <%= product.name %>
+          </h2>
+          <p><strong>Price:</strong> $<%= product.price %>
+          </p>
+          <p class="description">
+            <%= product.description %>
+          </p>
+          <img src="<%= product.imageUrl %>" alt="<%= product.name %>" style="width:100px;">
+        </li>
+        <% }) %>
+    </ul>
+    <%- include('partials/footer') %>
+</body>
+<script>
+  let p = document.getElementById("description");
+  let maxLength = 100; // Maximum number of characters
+  if (p.textContent.length > maxLength) {
+    p.textContent = p.textContent.substring(0, maxLength) + "...";
+  }
+</script>
+
+</html>
